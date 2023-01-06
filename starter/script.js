@@ -100,6 +100,8 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  alert("Called this function. Wheeee!!!");
+  return "This is a secret password. Whee."
 
 }
 
