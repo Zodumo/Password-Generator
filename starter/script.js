@@ -87,11 +87,40 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+// 
 // Function to prompt user for password options
-function getPasswordOptions() {
+// Function to prompt user for password options
+function getPasswordOptions(lowercase, uppercase, numeric, special) {
+  // Validate password length
+  while (true) {
+    // Prompt for password length
+    var length = prompt(
+      'Enter the length of the password (between 10 and 64 characters):'
+    );
 
+    // Validate password length
+    if (length >= 10 && length <= 64) {
+      return;
+    } else {
+      alert('Password must be at least 10 characters but no more than 64');
+    }
+  }
 }
+
+getPasswordOptions();
+
+// Prompt for character types
+const lowercase = confirm('Include lowercase characters?');
+const uppercase = confirm('Include uppercase characters?');
+const numeric = confirm('Include numeric characters?');
+const special = confirm('Include special characters ($@%&*)?');
+// function getPasswordOptions(specialC, upper, lower, num) {
+//   specialC = confirm("Password should contain a special character?"),
+//   upper = confirm("Password should an Upper case character?"),
+//   lower = confirm("Password should contain a lower case character?"),
+//   num = confirm("Password should contain a numeric character?")
+// }
+// getPasswordOptions();
 
 // Function for getting a random element from an array
 function getRandom(arr) {
