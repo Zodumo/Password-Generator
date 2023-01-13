@@ -1,5 +1,3 @@
-
-
 // Array of special characters to be included in password
 var specialCharacters = [
   '@',
@@ -98,11 +96,11 @@ function getPasswordOptions() {
   // Validate password length
   while (true) {
     // Prompt for password length
-    var Passwordlength = parseInt(prompt(
+    var password = parseInt(prompt(
       'Enter the length of the password (between 10 and 64 characters):'));
 
     // Validate password length
-    if (Passwordlength >= 10 && Passwordlength <= 64) {
+    if (password >= 10 && password <= 64) {
       return;
     } else {
       alert('Password must be at least 10 characters but no more than 64. Please enter numerical value');
@@ -120,18 +118,18 @@ var special = confirm('Include special characters ($@%&*)?');
 
 addingChars = [];
 if (lowercase == true) {
-  addingChars.push(...lowerCasedCharacters)
+  addingChars.concat(...lowerCasedCharacters)
 };
 if (uppercase == true) {
-  addingChars.push(...upperCasedCharacters)
+  addingChars.concat(...upperCasedCharacters)
 };
 
 if (numeric == true) {
-  addingChars.push(...numericCharacters)
+  addingChars.concat(...numericCharacters)
 };
 
 if (special == true) {
-  addingChars.push(...specialCharacters)
+  addingChars.concat(...specialCharacters)
 };
 
 
@@ -140,38 +138,36 @@ if (special == true) {
 // function generatePassword() {
 
 //   if(lowercase === true) {
-//     addingChars.push(...lowerCasedCharacters)
+//     addingChars.concat(...lowerCasedCharacters)
 //   };
 //   if(uppercase === true) {
-//     addingChars.push(...upperCasedCharacters)
+//     addingChars.concat(...upperCasedCharacters)
 //   };
 
 //   if(numeric === true) {
-//     addingChars.push(...numericCharacters)
+//     addingChars.concat(...numericCharacters)
 //   };
 
 //   if(special === true) {
-//     addingChars.push(...specialCharacters)
+//     addingChars.concat(...specialCharacters)
 //   };
 // }
 
 // generatePassword()
 
 // Function for getting a random element from an array
-function getRandom() {
+function generatePassword() {
 
-  newPassword = '';
-
-  for (var i = 0; i < Passwordlength; i++) {
-    newPassword +=
+  for (var i = 0; i < password; i++) {
+    password+=
 
       addingChars[Math.floor(Math.random() * addingChars.length)];
-  }
-  return newPassword()
-
+  } 
+  return 
 }
 
 
+// return generatePassword()
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
