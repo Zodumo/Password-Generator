@@ -1,3 +1,5 @@
+
+
 // Array of special characters to be included in password
 var specialCharacters = [
   '@',
@@ -87,22 +89,23 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+var password = "";
+
 // 
 // Function to prompt user for password options
 // Function to prompt user for password options
-function getPasswordOptions(lowercase, uppercase, numeric, special) {
+function getPasswordOptions() {
   // Validate password length
   while (true) {
     // Prompt for password length
-    var length = prompt(
-      'Enter the length of the password (between 10 and 64 characters):'
-    );
+    var Passwordlength = parseInt(prompt(
+      'Enter the length of the password (between 10 and 64 characters):'));
 
     // Validate password length
-    if (length >= 10 && length <= 64) {
+    if (Passwordlength >= 10 && Passwordlength <= 64) {
       return;
     } else {
-      alert('Password must be at least 10 characters but no more than 64');
+      alert('Password must be at least 10 characters but no more than 64. Please enter numerical value');
     }
   }
 }
@@ -110,29 +113,65 @@ function getPasswordOptions(lowercase, uppercase, numeric, special) {
 getPasswordOptions();
 
 // Prompt for character types
-const lowercase = confirm('Include lowercase characters?');
-const uppercase = confirm('Include uppercase characters?');
-const numeric = confirm('Include numeric characters?');
-const special = confirm('Include special characters ($@%&*)?');
-// function getPasswordOptions(specialC, upper, lower, num) {
-//   specialC = confirm("Password should contain a special character?"),
-//   upper = confirm("Password should an Upper case character?"),
-//   lower = confirm("Password should contain a lower case character?"),
-//   num = confirm("Password should contain a numeric character?")
+var lowercase = confirm('Include lowercase characters?');
+var uppercase = confirm('Include uppercase characters?');
+var numeric = confirm('Include numeric characters?');
+var special = confirm('Include special characters ($@%&*)?');
+
+addingChars = [];
+if (lowercase == true) {
+  addingChars.push(...lowerCasedCharacters)
+};
+if (uppercase == true) {
+  addingChars.push(...upperCasedCharacters)
+};
+
+if (numeric == true) {
+  addingChars.push(...numericCharacters)
+};
+
+if (special == true) {
+  addingChars.push(...specialCharacters)
+};
+
+
+// addingChars = [];
+// // Function to generate password with user input
+// function generatePassword() {
+
+//   if(lowercase === true) {
+//     addingChars.push(...lowerCasedCharacters)
+//   };
+//   if(uppercase === true) {
+//     addingChars.push(...upperCasedCharacters)
+//   };
+
+//   if(numeric === true) {
+//     addingChars.push(...numericCharacters)
+//   };
+
+//   if(special === true) {
+//     addingChars.push(...specialCharacters)
+//   };
 // }
-// getPasswordOptions();
+
+// generatePassword()
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+function getRandom() {
+
+  newPassword = '';
+
+  for (var i = 0; i < Passwordlength; i++) {
+    newPassword +=
+
+      addingChars[Math.floor(Math.random() * addingChars.length)];
+  }
+  return newPassword()
 
 }
 
-// Function to generate password with user input
-function generatePassword() {
-  alert("Called this function. Wheeee!!!");
-  return "This is a secret password. Whee."
 
-}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
