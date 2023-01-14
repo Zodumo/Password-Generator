@@ -1,79 +1,42 @@
 # Password Generator
 
-## Overview
+## Description 
  
-This week’s challenge requires you to create an application that an employee can use to generate a random password based on criteria they’ve selected by modifying starter code. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
+ This repository is for a random generator app to help users come up with a password of their desired length and character types. 
+ They have the option of a password of a length betwee 10 and 64 (inclusive) and options of having lowercase, uppercase, numeric, and special character types. 
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of Password Special Characters from the OWASP Foundation](https://www.owasp.org/index.php/Password_special_characters).
+## Usage
 
-## Instructions
+The project has been deployed on GitHub Pages and can be accessed using this link:
 
-The following image shows the web application's appearance and functionality:
+https://zodumo.github.io/Password-Generator/
 
-![password generator demo](./assets/05-javascript-challenge-demo.png)
+The following image shows what you should see when you're accessing the password generator
 
-
-* Generate a password when the button is clicked
-  * Present a series of prompts for password criteria
-    * Length of password
-      * At least 10 characters but no more than 64.
-    * Character types
-      * Lowercase
-      * Uppercase
-      * Numeric
-      * Special characters ($@%&*, etc)
-  * Code should validate for each input and at least one character type should be selected
-  * Once prompts are answered then the password should be generated and displayed in an alert or written to the page
-
-## Grading Requirements
-
-This challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria plus the following:
-
-  * The challenge should not produce any errors in the console when you inspect it using Chrome DevTools.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
+![password generator demo](./assets/passwordGenerator.png)
 
 
-## Review
+To use the Generator:
 
-You are required to submit the following for review:
+ 1. Access it via this link : https://zodumo.github.io/Password-Generator/ 
 
-* The URL of the deployed application.
+ 2. Click the red 'Generate Password' button as seen in the above image.
+ 
+  3. You will then be met with a prompt to enter your deired password length.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+  4. Next few prompts will ask for character types you would like included in your password.
 
----
+  5. The password should then appear in the text area.
 
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+## Credits
+
+N/A
+
+### License
+N/A
+
+
+
+
+
+
