@@ -89,85 +89,112 @@ var upperCasedCharacters = [
 ];
 var password = "";
 
-// 
-// Function to prompt user for password options
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+  userInput = {};
   // Validate password length
   while (true) {
     // Prompt for password length
-    var password = parseInt(prompt(
+    var newPassword = parseInt(prompt(
       'Enter the length of the password (between 10 and 64 characters):'));
 
     // Validate password length
-    if (password >= 10 && password <= 64) {
-      return;
+    if (newPassword >= 10 && newPassword <= 64 && Number.isInteger(newPassword)) {
+      userInput['length'] = newPassword;
+     
+      //Once password length is confirmed by numer, this loop breaks
+      break;
+
+      //if not, the user is asked to enter length again using numeric value
     } else {
       alert('Password must be at least 10 characters but no more than 64. Please enter numerical value');
     }
   }
+
+  //logging the user's input in object
+  console.log(Object.values(userInput));
+
+  //while loop prompting user to confirm characters they want included in their password
+
+  while (Object.values(userInput).includes(true) == false) {
+
+    // Prompt for character types
+    var lowercase = confirm('Include lowercase characters?');
+    userInput['lowercase'] = lowercase;
+
+    var uppercase = confirm('Include uppercase characters?');
+    userInput['uppercase'] = uppercase;
+
+    var numeric = confirm('Include numeric characters?');
+    userInput['numeric'] = numeric;
+
+    var special = confirm('Include special characters ($@%&*)?');
+    userInput['special'] = special;
+
+    // in the case that a user has rejected all character types, the loop starts again
+    // and they're prompted to start their options again and to select at least one character type.
+    if (Object.values(userInput).includes(true) == false) {
+      alert('You need to select at least one character type');
+    };
+
+  }
+
+  return userInput;
 }
 
-getPasswordOptions();
 
-// Prompt for character types
-var lowercase = confirm('Include lowercase characters?');
-var uppercase = confirm('Include uppercase characters?');
-var numeric = confirm('Include numeric characters?');
-var special = confirm('Include special characters ($@%&*)?');
-
-addingChars = [];
-if (lowercase == true) {
-  addingChars.concat(...lowerCasedCharacters)
-};
-if (uppercase == true) {
-  addingChars.concat(...upperCasedCharacters)
-};
-
-if (numeric == true) {
-  addingChars.concat(...numericCharacters)
-};
-
-if (special == true) {
-  addingChars.concat(...specialCharacters)
-};
-
-
-// addingChars = [];
-// // Function to generate password with user input
-// function generatePassword() {
-
-//   if(lowercase === true) {
-//     addingChars.concat(...lowerCasedCharacters)
-//   };
-//   if(uppercase === true) {
-//     addingChars.concat(...upperCasedCharacters)
-//   };
-
-//   if(numeric === true) {
-//     addingChars.concat(...numericCharacters)
-//   };
-
-//   if(special === true) {
-//     addingChars.concat(...specialCharacters)
-//   };
-// }
-
-// generatePassword()
 
 // Function for getting a random element from an array
-function generatePassword() {
+function getRandom(Newarr) {
+  //return item at random selected index out of all indexes in array
+  return Newarr[Math.floor(Math.random() * Newarr.length)];
 
-  for (var i = 0; i < password; i++) {
-    password+=
-
-      addingChars[Math.floor(Math.random() * addingChars.length)];
-  } 
-  return 
 }
 
+//checking the size of the new array (the passowrd)
+function checkSizeAndAdd(Newarr, item) {
+  Newarr.unshift(item);
+  return true
 
-// return generatePassword()
+};
+// Function to generate password with user input
+function generatePassword() {
+  var userInput = getPasswordOptions();
+
+  //The user's password will be stored in an empty array
+  //In this loop, we are going to check that the generator meets the user's desired length (userInput)
+  var maxLength = userInput.length
+  password = []
+  var i = 0;
+  while (password.length < maxLength) {
+
+    //Check the desired password length and character type then keep adding characters until we reach that length 
+    if (userInput.uppercase == true && password.length < maxLength) {
+      password.push(getRandom(upperCasedCharacters));
+      i++
+
+    };
+    if (userInput.lowercase == true && password.length < maxLength) {
+      password.unshift(getRandom(lowerCasedCharacters));
+      i++
+
+    };
+    if (userInput.numeric == true && password.length < maxLength) {
+      password.unshift(getRandom(numericCharacters));
+      i++
+
+    };
+    if (userInput.specialChars == true && password.length < maxLength) {
+      password.push(getRandom(specialCharacters));
+      i++
+
+    };
+
+  }
+  return password.join("");
+}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
